@@ -13,7 +13,7 @@ tar -xvzf ~/Downloads/kafka.tgz --strip 1
 
 
 ## Executando ##########
-### Primeiro executar 'zookeeper' e logo após iniciar executar 'kafka'
+### Primeiro executar 'zookeeper' e logo após iniciar/executar 'kafka'
 #### (Verificar/Mudar versão do java: `sudo update-alternatives --config java`)
 ```
 cd kafka
