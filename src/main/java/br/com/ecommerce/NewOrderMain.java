@@ -14,13 +14,19 @@ public class NewOrderMain {
         String value = "132123,321321,32131";
         ProducerRecord<String, String> record = new ProducerRecord<>("ECOMMERCE_NEW_ORDER", value, value);
 
-        producer.send(record, (data, ex)-> {
-            if(ex != null){
+        Callback callback = (data, ex) -> {
+            if (ex != null) {
                 ex.printStackTrace();
                 return;
             }
             System.out.println("Sucesso enviando: " + data.topic() + ":::partition " + data.partition() + "/ offset " + data.offset() + "/ timestamp " + data.timestamp());
-        }).get();
+        };
+        producer.send(record, callback).get();
+
+
+        String email = "Thank you for your order! We are processing your order";
+        ProducerRecord<String, String> emailRecord = new ProducerRecord<>("ECOMMERCE_SEND_EMAIL", email, email);
+        producer.send(emailRecord, callback).get();
     }
 
     private static Properties properties() {
