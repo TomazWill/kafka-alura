@@ -54,3 +54,8 @@ bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic LOJA_NOV
 ```
 bin/kafka-topics.sh --describe --bootstrap-server localhost:9092
 ```
+
+### Alterando/Aumentando as partitions dos tópicos
+```
+bin/kafka-topics.sh --alter --bootstrap-server localhost:9092 --topic ECOMMERCE_NEW_ORDER --partitions 3
+```
