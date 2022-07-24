@@ -59,3 +59,8 @@ bin/kafka-topics.sh --describe --bootstrap-server localhost:9092
 ```
 bin/kafka-topics.sh --alter --bootstrap-server localhost:9092 --topic ECOMMERCE_NEW_ORDER --partitions 3
 ```
+
+### Listando os grupos dos consumidores
+```
+bin/kafka-consumer-groups.sh --all-groups --bootstrap-server localhost:9092 --describe
+```
